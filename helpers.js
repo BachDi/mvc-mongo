@@ -1,3 +1,4 @@
+const url = require("url");
 function handleError(error, filePath = "", functionName = "") {
   console.error(`${filePath} -> ${functionName} -> Error:`, error);
 }
@@ -10,4 +11,10 @@ function handleAuthResponse(response, isSuccessful = false) {
   response.end(JSON.stringify(data));
 }
 
-module.exports = { handleError, handleAuthResponse };
+function handleNotFound(req, res) {
+  const parsedUrl = url.parse(req.url, true);
+  res.statusCode = 404;
+  res.end(`Route ${parsedUrl.pathname} not found.`);
+}
+
+module.exports = { handleError, handleAuthResponse, handleNotFound };

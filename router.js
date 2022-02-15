@@ -1,5 +1,5 @@
 const url = require("url");
-const { handleError } = require("./helpers");
+const { handleError, handleNotFound } = require("./helpers");
 const { parseRequestBody } = require("./middlewares/parse-request-body");
 const { taskController, userController } = require("./controller");
 
@@ -56,6 +56,7 @@ const routes = {
 
 function getRouter(req) {
   const parsedUrl = url.parse(req.url, true);
+  console.log(req.method, parsedUrl.pathname);
   if (routes[req.method] && routes[req.method][parsedUrl.pathname]) {
     const currentRouteData = routes[req.method][parsedUrl.pathname];
     if (
