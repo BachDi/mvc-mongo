@@ -70,6 +70,14 @@ app.patch("/edit-task", (req, res) => {
   router(req, res);
 });
 
+app.delete("/delete-task", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
 app.listen(port, function () {
   console.log("CORS-enabled web server listening on port 8000");
 });

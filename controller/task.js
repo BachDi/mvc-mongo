@@ -63,8 +63,7 @@ function editTaskById(request, response) {
 }
 
 function deleteTaskById(request, response) {
-  let task = request.body;
-  const taskId = task._id;
+  let taskId = request.body;
   findTaskById(taskId)
     .then((foundTask) => {
       debugger;
