@@ -85,6 +85,15 @@ app.get("/users", (req, res) => {
   console.log("controller => ", router);
   router(req, res);
 });
+
+app.post("/find-user", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
 app.post("/sign-up", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
@@ -92,7 +101,24 @@ app.post("/sign-up", (req, res) => {
   console.log("controller => ", router);
   router(req, res);
 });
+
 app.post("/sign-in", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
+app.delete("/delete-user", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
+app.patch("/edit-user", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
   const router = getRouter(req);
