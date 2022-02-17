@@ -78,6 +78,28 @@ app.delete("/delete-task", (req, res) => {
   router(req, res);
 });
 
+app.get("/users", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+app.post("/sign-up", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+app.post("/sign-in", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
 app.listen(port, function () {
   console.log("CORS-enabled web server listening on port 8000");
 });

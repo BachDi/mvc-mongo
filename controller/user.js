@@ -8,6 +8,7 @@ const {
   validateUser,
   verifyUser,
 } = require("./helpers");
+const jwt = require("jsonwebtoken")
 
 function handleNotFound(request, response) {
   const parsedUrl = url.parse(request.url, true);
@@ -27,6 +28,29 @@ function signUp(request, response) {
     });
 }
 
+function signIn(request, response) {
+  const user = request.body
+  response.setHeader('Content-Type', 'application/json');
+  verifyUser(user).then(foundUser => {
+    if (!foundUser) {
+      throw new Error('User not found')
+    }
+    const token = jwt.sign(
+      { userId: foundUser.id },
+      'RANDOM_TOKEN_SECRET',
+      { expiresIn: '24h' }
+    )
+    const data = {
+      token
+    }
+    response.end(JSON.stringify(data));
+  }).catch(err => {
+    handleError(err, 'controllers/index.js', 'signIn')
+    response.statusCode = 404
+    response.end('Username or password is not correct.')
+  })
+}
+
 function getUsers(request, response) {
   response.setHeader("Content-Type", "application/json");
   findUsers()
@@ -34,7 +58,7 @@ function getUsers(request, response) {
       response.end(JSON.stringify(data));
     })
     .catch((error) => {
-      handleError(error, "controllers/user.js", "getUsers");
+      handleError(error, "controllers/user.js", "getUser");
       handleAuthResponse(response, false);
     });
 }
@@ -100,6 +124,7 @@ function deleteUserById(request, response) {
 
 module.exports = {
   signUp,
+  signIn,
   getUsers,
   getUserById,
   editUserById,

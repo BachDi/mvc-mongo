@@ -73,12 +73,11 @@ function validateUser(user) {
 }
 
 function verifyUser(user) {
-  return {
-    username: user.username,
-    password: user.password,
-    isAdmin: user.isAdmin === "true" ? true : false,
-    isDeleted: user.isDeleted === "true" ? true : false,
-  };
+  const signingInUser = {
+    ...user,
+    password: hashPassword(user.password)
+  }
+  return userModel.findOne(user);
 }
 
 module.exports = {

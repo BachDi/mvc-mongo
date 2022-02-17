@@ -1,6 +1,6 @@
 const url = require("url");
 const { handleError, handleNotFound } = require("./helpers");
-const { parseRequestBody } = require("./middlewares/parse-request-body");
+const { parseRequestBody } = require("./middlewares");
 const { taskController, userController } = require("./controller");
 
 const routes = {
@@ -35,6 +35,10 @@ const routes = {
     },
     "/sign-up": {
       controller: userController.signUp,
+      middlewares: [parseRequestBody],
+    },
+    "/sign-in": {
+      controller: userController.signIn,
       middlewares: [parseRequestBody],
     },
     "/find-user": {
