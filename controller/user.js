@@ -45,9 +45,8 @@ function signIn(request, response) {
     }
     response.end(JSON.stringify(data));
   }).catch(err => {
-    handleError(err, 'controllers/index.js', 'signIn')
-    response.statusCode = 404
-    response.end('Username or password is not correct.')
+    handleError(err, "controllers/index.js", "signIn");
+    response.end(JSON.stringify("Username or password is not correct."));
   })
 }
 

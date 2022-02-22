@@ -110,7 +110,7 @@ function verifyUser(user) {
     ...user,
     password: hashPassword(user.password)
   }
-  return userModel.findOne(user);
+  return userModel.findOne(signingInUser);
 }
 
 module.exports = {
