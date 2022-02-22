@@ -73,8 +73,11 @@ function insertUser(user) {
   const newUser = {
     username: user.username,
     password: password,
-    tasks: user.tasks,
     isAdmin: user.isAdmin,
+    name: user.name,
+    age: user.age,
+    gender: user.gender,
+    isDeleted: false,
   };
   console.log(newUser);
   return userModel.create(newUser);
