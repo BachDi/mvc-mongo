@@ -71,8 +71,11 @@ function getUserById(request, response) {
       if (foundUser) {
         let info = {
           _id: foundUser._id,
+          name:foundUser.name,
           username: foundUser.username,
-          tasks: foundUser.isDone,
+          password: foundUser.password, 
+          gender: foundUser.gender, 
+          age: foundUser.age, 
           isAdmin: foundUser.isAdmin,
           isDeleted: foundUser.isDeleted,
         };
