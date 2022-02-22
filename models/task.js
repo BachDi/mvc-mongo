@@ -14,18 +14,18 @@ const taskSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  projectId:{
+  projectId: {
     type: String,
     required: false,
   },
-  assginedTo:{
+  assignedTo: {
     type: String,
     required: true,
   },
-  createdBy:{
+  createdBy: {
     type: String,
     required: true,
-  }
+  },
 });
 
 const Tasks = mongoose.model("tasks", taskSchema);

@@ -45,6 +45,8 @@ function insertTask(task) {
     taskName: task.taskName,
     isDone: false,
     isDeleted: false,
+    createdBy: task.createdBy,
+    assignedTo: task.assignedTo,
   };
   console.log(newTask);
   return taskModel.create(newTask);

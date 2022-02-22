@@ -41,8 +41,9 @@ function signIn(request, response) {
       { expiresIn: '24h' }
     )
     const data = {
-      token
-    }
+      token,
+      userId: foundUser.id,
+    };
     response.end(JSON.stringify(data));
   }).catch(err => {
     handleError(err, "controllers/index.js", "signIn");
