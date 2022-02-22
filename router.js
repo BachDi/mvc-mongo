@@ -1,7 +1,7 @@
 const url = require("url");
 const { handleError, handleNotFound } = require("./helpers");
 const { parseRequestBody } = require("./middlewares");
-const { taskController, userController } = require("./controller");
+const { taskController, userController, projectController } = require("./controller");
 
 const routes = {
   GET: {
@@ -13,6 +13,10 @@ const routes = {
       controller: userController.getUsers,
       middlewares: [parseRequestBody],
     },
+    "/projects": {
+      controller: projectController.getProjects,
+      middlewares: [parseRequestBody],
+    },
   },
   DELETE: {
     "/delete-task": {
@@ -21,6 +25,10 @@ const routes = {
     },
     "/delete-user": {
       controller: userController.deleteUserById,
+      middlewares: [parseRequestBody],
+    },
+    "/delete-project": {
+      controller: projectController.deleteProjectById,
       middlewares: [parseRequestBody],
     },
   },
@@ -45,6 +53,14 @@ const routes = {
       controller: userController.getUserById,
       middlewares: [parseRequestBody],
     },
+    "/project": {
+      controller: projectController.addProject,
+      middlewares: [parseRequestBody],
+    },
+    "/find-project": {
+      controller: projectController.getProjectById,
+      middlewares: [parseRequestBody],
+    },
   },
   PATCH: {
     "/edit-task": {
@@ -53,6 +69,10 @@ const routes = {
     },
     "/edit-user": {
       controller: userController.editUserById,
+      middlewares: [parseRequestBody],
+    },
+    "/edit-project": {
+      controller: projectController.editProjectById,
       middlewares: [parseRequestBody],
     },
   },

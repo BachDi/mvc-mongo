@@ -126,6 +126,46 @@ app.patch("/edit-user", (req, res) => {
   router(req, res);
 });
 
+app.get("/projects", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
+app.post("/projects", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
+app.post("/find-project", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
+app.patch("/edit-project", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
+app.delete("/delete-project", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
 app.listen(port, function () {
   console.log("CORS-enabled web server listening on port 8000");
 });

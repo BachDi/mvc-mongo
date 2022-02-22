@@ -1,5 +1,38 @@
 const crypto = require("crypto");
-const { taskModel, userModel } = require("../models");
+const { taskModel, userModel, projectModel } = require("../models");
+
+//----Task----//
+
+function findProjects(project = {}) {
+  return projectModel.find(project);
+}
+
+function insertProject(project) {
+  const newProject = {
+    projectName: task.projectName,
+    isDone: false,
+    createdBy: project.createdBy,
+  };
+  console.log(newProject);
+  return taskModel.create(newProject);
+}
+
+function updateProject(projectId, project) {
+  return projectModel.findByIdAndUpdate(projectId, project);
+}
+
+function findProjectById(projectId) {
+  return projectModel.findById(projectId);
+}
+
+function handleAuthResponse(response, isSuccessful = false) {
+  const data = {
+    status: isSuccessful ? "success" : "fail",
+  };
+  response.setHeader("Content-Type", "application/json");
+  response.end(JSON.stringify(data));
+}
+
 
 //----Task----//
 
@@ -81,6 +114,10 @@ function verifyUser(user) {
 }
 
 module.exports = {
+  findProjects,
+  insertProject,
+  updateProject,
+  findProjectById,
   findTasks,
   insertTask,
   updateTask,
