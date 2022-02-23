@@ -82,11 +82,11 @@ const routes = {
       middlewares: [parseRequestBody],
     },
     "/project-users": {
-      controller: projectUsersController.addProjectUser,
+      controller: projectUsersController.addUserToProject,
       middlewares: [parseRequestBody],
     },
     "/project-tasks": {
-      controller: projectTasksController.addProjectTask,
+      controller: projectTasksController.addTaskToProject,
       middlewares: [parseRequestBody],
     },
   },
