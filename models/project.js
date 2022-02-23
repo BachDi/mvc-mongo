@@ -8,7 +8,11 @@ const projectSchema = new Schema({
   },
   isDone: {
     type: Boolean,
-    default: true,
+    default: false,
+  },
+  isDeleted:{
+    type: Boolean,
+    default: false,
   },
   createdBy: {
     type: String,
@@ -18,6 +22,7 @@ const projectSchema = new Schema({
     type: [String],
     required: false,
   },
+
 });
 
 const Projects = mongoose.model("projects", projectSchema);
