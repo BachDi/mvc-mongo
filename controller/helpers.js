@@ -9,12 +9,12 @@ function findProjects(project = {}) {
 
 function insertProject(project) {
   const newProject = {
-    projectName: task.projectName,
+    projectName: project.projectName,
     isDone: false,
     createdBy: project.createdBy,
   };
   console.log(newProject);
-  return taskModel.create(newProject);
+  return projectModel.create(newProject);
 }
 
 function updateProject(projectId, project) {

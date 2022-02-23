@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const projectSchema = new Schema({
-  projectName:{
+  projectName: {
     type: String,
     required: true,
   },
@@ -10,11 +10,15 @@ const projectSchema = new Schema({
     type: Boolean,
     default: true,
   },
-  createdBy:{
+  createdBy: {
     type: String,
     required: true,
   },
-})
+  users: {
+    type: [String],
+    required: false,
+  },
+});
 
 const Projects = mongoose.model("projects", projectSchema);
 

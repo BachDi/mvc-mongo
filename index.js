@@ -134,7 +134,7 @@ app.get("/projects", (req, res) => {
   router(req, res);
 });
 
-app.post("/projects", (req, res) => {
+app.post("/project", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
   const router = getRouter(req);
