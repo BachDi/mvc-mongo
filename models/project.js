@@ -22,7 +22,10 @@ const projectSchema = new Schema({
     type: [String],
     required: false,
   },
-
+  tasks: {
+    type: [String],
+    required: false,
+  },
 });
 
 const Projects = mongoose.model("projects", projectSchema);

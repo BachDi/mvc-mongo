@@ -158,6 +158,22 @@ app.patch("/edit-project", (req, res) => {
   router(req, res);
 });
 
+app.patch("/project-users", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
+app.patch("/project-tasks", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
 app.delete("/delete-project", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");

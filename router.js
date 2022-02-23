@@ -1,7 +1,13 @@
 const url = require("url");
 const { handleError, handleNotFound } = require("./helpers");
 const { parseRequestBody } = require("./middlewares");
-const { taskController, userController, projectController } = require("./controller");
+const {
+  taskController,
+  userController,
+  projectController,
+  projectUsersController,
+  projectTasksController,
+} = require("./controller");
 
 const routes = {
   GET: {
@@ -73,6 +79,14 @@ const routes = {
     },
     "/edit-project": {
       controller: projectController.editProjectById,
+      middlewares: [parseRequestBody],
+    },
+    "/project-users": {
+      controller: projectUsersController.addProjectUser,
+      middlewares: [parseRequestBody],
+    },
+    "/project-tasks": {
+      controller: projectTasksController.addProjectTask,
       middlewares: [parseRequestBody],
     },
   },
