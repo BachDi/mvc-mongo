@@ -12,6 +12,8 @@ function insertProject(project) {
     projectName: project.projectName,
     isDone: false,
     createdBy: project.createdBy,
+    tasks: [],
+    users: [],
   };
   console.log(newProject);
   return projectModel.create(newProject);

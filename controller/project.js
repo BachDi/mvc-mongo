@@ -36,8 +36,6 @@ function getProjectById(request, response) {
           projectName: foundProject.projectName,
           isDone: foundProject.isDone,
           isDeleted: foundProject.isDeleted,
-          users: [],
-          tasks: [],
         };
         response.statusCode = 200;
         response.end(JSON.stringify(info));
