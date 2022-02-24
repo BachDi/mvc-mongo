@@ -95,6 +95,10 @@ function addProject(request, response) {
     });
 }
 
+function updateProjectUsers(projectId, project) {
+  return projectModel.findByIdAndUpdate(projectId, project);
+}
+
 function pingWithAuth(request, response) {
   response.end("Success");
 }

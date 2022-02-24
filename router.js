@@ -6,7 +6,6 @@ const {
   userController,
   projectController,
   projectUsersController,
-  projectTasksController,
 } = require("./controller");
 
 const routes = {
@@ -21,6 +20,10 @@ const routes = {
     },
     "/projects": {
       controller: projectController.getProjects,
+      middlewares: [parseRequestBody],
+    },
+    "/project-users": {
+      controller: projectUsersController.getProjectUsers,
       middlewares: [parseRequestBody],
     },
   },
@@ -67,6 +70,14 @@ const routes = {
       controller: projectController.getProjectById,
       middlewares: [parseRequestBody],
     },
+    "/project-users": {
+      controller: projectUsersController.addUserToProject,
+      middlewares: [parseRequestBody],
+    },
+    "/find-project-user": {
+      controller: projectUsersController.getProjectUserById,
+      middlewares: [parseRequestBody],
+    },
   },
   PATCH: {
     "/edit-task": {
@@ -81,12 +92,8 @@ const routes = {
       controller: projectController.editProjectById,
       middlewares: [parseRequestBody],
     },
-    "/project-users": {
+    "/edit-project-user": {
       controller: projectUsersController.addUserToProject,
-      middlewares: [parseRequestBody],
-    },
-    "/project-tasks": {
-      controller: projectTasksController.addTaskToProject,
       middlewares: [parseRequestBody],
     },
   },

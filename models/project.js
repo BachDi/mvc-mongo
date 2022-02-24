@@ -10,21 +10,13 @@ const projectSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  isDeleted:{
+  isDeleted: {
     type: Boolean,
     default: false,
   },
   createdBy: {
     type: String,
     required: true,
-  },
-  users: {
-    type: [String],
-    required: false,
-  },
-  tasks: {
-    type: [String],
-    required: false,
   },
 });
 

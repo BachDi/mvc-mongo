@@ -1,5 +1,10 @@
 const crypto = require("crypto");
-const { taskModel, userModel, projectModel } = require("../models");
+const {
+  taskModel,
+  userModel,
+  projectModel,
+  projectUsersModel,
+} = require("../models");
 
 //----Task----//
 
@@ -12,8 +17,6 @@ function insertProject(project) {
     projectName: project.projectName,
     isDone: false,
     createdBy: project.createdBy,
-    tasks: [],
-    users: [],
   };
   console.log(newProject);
   return projectModel.create(newProject);
@@ -34,7 +37,6 @@ function handleAuthResponse(response, isSuccessful = false) {
   response.setHeader("Content-Type", "application/json");
   response.end(JSON.stringify(data));
 }
-
 
 //----Task----//
 
@@ -115,9 +117,31 @@ function validateUser(user) {
 function verifyUser(user) {
   const signingInUser = {
     ...user,
-    password: hashPassword(user.password)
-  }
+    password: hashPassword(user.password),
+  };
   return userModel.findOne(signingInUser);
+}
+
+// projectUser
+function insertProjectUser(projectUser) {
+  const newProjectUser = {
+    projectId: projectUser.projectId,
+    userId: projectUser.userId,
+  };
+  console.log(newProjectUser);
+  return projectUsersModel.create(newProjectUser);
+}
+
+function updateProjectUser(projectUserId, projectUser) {
+  return projectUsersModel.findByIdAndUpdate(projectUserId, projectUser);
+}
+
+function findProjectUserById(projectUserId) {
+  return projectUsersModel.findById(projectUserId);
+}
+
+function findProjectUsers(project = {}) {
+  return projectUsersModel.find(project);
 }
 
 module.exports = {
@@ -136,4 +160,8 @@ module.exports = {
   findUserById,
   validateUser,
   verifyUser,
+  insertProjectUser,
+  updateProjectUser,
+  findProjectUserById,
+  findProjectUsers,
 };

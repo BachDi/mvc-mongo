@@ -134,6 +134,14 @@ app.get("/projects", (req, res) => {
   router(req, res);
 });
 
+app.get("/project-users", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
 app.post("/project", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
@@ -150,6 +158,22 @@ app.post("/find-project", (req, res) => {
   router(req, res);
 });
 
+app.post("/project-users", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
+app.post("/find-project-user", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  const router = getRouter(req);
+  console.log("controller => ", router);
+  router(req, res);
+});
+
 app.patch("/edit-project", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
@@ -158,15 +182,7 @@ app.patch("/edit-project", (req, res) => {
   router(req, res);
 });
 
-app.patch("/project-users", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
-
-app.patch("/project-tasks", (req, res) => {
+app.patch("/edit-project-user", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
   const router = getRouter(req);
