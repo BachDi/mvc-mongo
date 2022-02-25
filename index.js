@@ -7,6 +7,11 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 
+// const taskRouter = require("./routes/task")
+// const userRouter = require("./routes/user")
+// const projectRouter = require("./routes/project")
+// const projectUserRouter = require("./routes/project-users")
+
 //connect mongoose
 const mongoose = require("mongoose");
 mongoose.connect(
@@ -197,6 +202,11 @@ app.delete("/delete-project", (req, res) => {
   console.log("controller => ", router);
   router(req, res);
 });
+
+// app.get("/tasks", taskRouter)
+// app.get("/users", userRouter)
+// app.get("/projects", projectRouter)
+// app.get("/projects", userRouter)
 
 app.listen(port, function () {
   console.log("CORS-enabled web server listening on port 8000");
