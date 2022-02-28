@@ -9,14 +9,14 @@ router.use((request, response, next) => {
   next();
 })
 
-router.get("/projects", projectController.getProjects);
+router.get("/", projectController.getProjects);
 
-router.delete("/projects/delete-project", projectController.deleteProjectById);
+router.delete("/delete-project", projectController.deleteProjectById);
 
-router.post("/projects/delete-project", projectController.addProject);
+router.post("/add-project", projectController.addProject);
 
-router.post("/projects/find-project", projectController.getProjectById);
+router.post("/find-project", projectController.getProjectById);
 
-router.patch("/projects/edit-project", projectController.editProjectById);
+router.patch("/edit-project", projectController.editProjectById);
 
 module.exports = router;

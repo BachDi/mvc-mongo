@@ -4,16 +4,16 @@ const { parseRequestBody } = require("../middlewares");
 
 const taskController = require("../controller/task")
 
-router.use((request, response, next) => {
+router.use("/", (request, response, next) => {
   parseRequestBody(request, response);
   next();
 })
 
-router.get("/tasks", taskController.getTasks);
+router.get("/", taskController.getTasks);
 
 router.delete("/delete-task", taskController.deleteTaskById);
 
-router.post("/tasks", taskController.addTask);
+router.post("/add-tasks", taskController.addTask);
 
 router.post("/find-task", taskController.getTaskById);
 
