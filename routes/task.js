@@ -1,7 +1,13 @@
 const express = require('express')
 const router = express.Router()
+const { parseRequestBody } = require("../middlewares");
 
 const taskController = require("../controller/task")
+
+router.use((request, response, next) => {
+  parseRequestBody(request, response);
+  next();
+})
 
 router.get("/tasks", taskController.getTasks);
 

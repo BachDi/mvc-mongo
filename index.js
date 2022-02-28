@@ -7,10 +7,10 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 
-// const taskRouter = require("./routes/task")
-// const userRouter = require("./routes/user")
-// const projectRouter = require("./routes/project")
-// const projectUserRouter = require("./routes/project-users")
+const taskRouter = require("./routes/task")
+const userRouter = require("./routes/user")
+const projectRouter = require("./routes/project")
+const projectUserRouter = require("./routes/project-users")
 
 //connect mongoose
 const mongoose = require("mongoose");
@@ -43,170 +43,170 @@ const server = http.createServer((req, res) => {
 });
 
 app.use(cors());
-app.get("/tasks", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.get("/tasks", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.post("/tasks", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.post("/tasks", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.post("/find-task", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.post("/find-task", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.patch("/edit-task", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.patch("/edit-task", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.delete("/delete-task", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.delete("/delete-task", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.get("/users", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.get("/users", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.post("/find-user", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.post("/find-user", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.post("/sign-up", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.post("/sign-up", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.post("/sign-in", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.post("/sign-in", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.delete("/delete-user", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.delete("/delete-user", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.patch("/edit-user", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.patch("/edit-user", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.get("/projects", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.get("/projects", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.get("/project-users", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.get("/project-users", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.post("/project", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.post("/project", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.post("/find-project", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.post("/find-project", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.post("/project-users", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.post("/project-users", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.post("/find-project-user", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.post("/find-project-user", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.patch("/edit-project", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.patch("/edit-project", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.patch("/edit-project-user", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.patch("/edit-project-user", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-app.delete("/delete-project", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
-});
+// app.delete("/delete-project", (req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader("Content-Type", "application/json");
+//   const router = getRouter(req);
+//   console.log("controller => ", router);
+//   router(req, res);
+// });
 
-// app.get("/tasks", taskRouter)
-// app.get("/users", userRouter)
-// app.get("/projects", projectRouter)
-// app.get("/projects", userRouter)
+app.use("/tasks", taskRouter)
+app.use("/users", userRouter)
+app.get("/projects", projectRouter)
+app.get("/projects", projectUserRouter)
 
 app.listen(port, function () {
   console.log("CORS-enabled web server listening on port 8000");
