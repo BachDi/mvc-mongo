@@ -1,7 +1,7 @@
 const http = require("http");
 const { getRouter, routes } = require("./router");
 const { DATABASE } = process.env;
-const hostname = "127.0.0.1";
+const hostname = "localhost";
 const port = 8000;
 const cors = require("cors");
 const express = require("express");
@@ -202,6 +202,3 @@ app.listen(port, function () {
   console.log("CORS-enabled web server listening on port 8000");
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
