@@ -1,17 +1,17 @@
 const http = require("http");
 const { getRouter, routes } = require("./router");
-const { DATABASE } = process.env;
-const hostname = "127.0.0.1";
-const port = 8000;
+const dotenv = require("dotenv");
+dotenv.config();
+const DATABASE = process.env.DATABASE;
+const port = process.env.PORT;
+const host = process.env.HOST;
 const cors = require("cors");
 const express = require("express");
 const app = express();
 
 //connect mongoose
 const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb+srv://set2021_tuphuc:hello@cluster0.vbssm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-);
+mongoose.connect(DATABASE);
 
 let connectionDB = mongoose.connection;
 
@@ -27,14 +27,6 @@ connectionDB.on("connected", function () {
 
 connectionDB.on("disconnected", function () {
   console.log("Connect DB failed");
-});
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  const router = getRouter(req);
-  console.log("controller => ", router);
-  router(req, res);
 });
 
 app.use(cors());
@@ -198,10 +190,6 @@ app.delete("/delete-project", (req, res) => {
   router(req, res);
 });
 
-app.listen(port, function () {
-  console.log("CORS-enabled web server listening on port 8000");
-});
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(port, host, function () {
+  console.log(`CORS-enabled web server listening on port ${port}`);
 });
